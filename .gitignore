@@ -3,7 +3,7 @@
 /node_modules
 .env*
 .vscode
-
+create-schema.ts
 # Logs
 logs
 *.log

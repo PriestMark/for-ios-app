@@ -7,14 +7,14 @@ export class Employee {
   @PrimaryKey()
   userId: string = uuidv4();
   @Property()
-  firstName!: string;
+  firstName: string;
   @Property()
-  lastName!: string;
-  @Property()
-  photoURL: string;
-  @Property()
+  lastName: string;
+  @Property({ nullable: true })
+  photoURL?: string;
+  @Property({ nullable: true })
   startDate: Date;
-  @Property()
+  @Property({ nullable: true })
   jobTitle: string;
   @Property()
   email: string;
