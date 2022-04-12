@@ -3,11 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { configValidationSchema } from 'config.schema';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { EmployeeController } from './employee/employee.controller';
-import { EmployeeService } from './employee/employee.service';
 import { EmployeeModule } from './employee/employee.module';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
-import { Employee } from './employee/entities/employee.entity';
 
 @Module({
   imports: [
@@ -18,11 +15,13 @@ import { Employee } from './employee/entities/employee.entity';
 
     MikroOrmModule.forRoot({
       entities: ['./dist/src/employee/entities'],
-      //entitiesTs: ['./src/employee/entities'],
-      dbName: 'for-ios-app',
+      entitiesTs: ['./src/employee/entities'],
+      dbName: process.env.DATABASE_ROOT || 'for-ios-app',
+      clientUrl:
+        process.env.DATABASE_URL || 'postgresql://postgres@127.0.0.1:5432',
       type: 'postgresql',
-      user: 'postgres',
-      password: 'postgres',
+      user: process.env.DATABASE_USERNAME || 'postgres',
+      password: process.env.DATABASE_PASSWORD || 'postgres',
     }),
     EmployeeModule,
   ],
