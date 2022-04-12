@@ -16,7 +16,7 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
     MikroOrmModule.forRoot({
       entities: ['./dist/src/employee/entities'],
       entitiesTs: ['./src/employee/entities'],
-      dbName: process.env.DATABASE_ROOT || 'for-ios-app',
+      //dbName: process.env.DATABASE_ROOT || 'for-ios-app',
       clientUrl:
         process.env.DATABASE_URL || 'postgresql://postgres@127.0.0.1:5432',
       type: 'postgresql',
