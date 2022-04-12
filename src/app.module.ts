@@ -20,8 +20,8 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
       clientUrl:
         process.env.DATABASE_URL || 'postgresql://postgres@127.0.0.1:5432',
       type: 'postgresql',
-      user: process.env.DATABASE_USERNAME || 'postgres',
-      password: process.env.DATABASE_PASSWORD || 'postgres',
+      //user: process.env.DATABASE_USERNAME || 'postgres',
+      //password: process.env.DATABASE_PASSWORD || 'postgres',
     }),
     EmployeeModule,
   ],
