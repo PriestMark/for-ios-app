@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Inject, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { EmployeeModule } from './employee/employee.module';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
@@ -27,5 +27,6 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
     }),
     EmployeeModule,
   ],
+  exports: [MikroOrmModule],
 })
 export class AppModule {}
