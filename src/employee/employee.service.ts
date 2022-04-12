@@ -7,11 +7,11 @@ import { EmployeeRepository } from './employee.repository';
 @Injectable()
 export class EmployeeService {
   constructor(
-    @InjectRepository(EmployeeRepository)
+    @InjectRepository(Employee)
     private employeeRepository: EmployeeRepository,
   ) {}
   async getEmployee(filterDto: GetEmployeeFileterDto): Promise<Employee[]> {
-    const employees = this.employeeRepository.getEmployees(filterDto);
+    const employees = await this.employeeRepository.getEmployees(filterDto);
     return employees;
   }
 }

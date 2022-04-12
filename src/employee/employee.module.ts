@@ -3,9 +3,10 @@ import { Module } from '@nestjs/common';
 import { EmployeeController } from './employee.controller';
 import { EmployeeRepository } from './employee.repository';
 import { EmployeeService } from './employee.service';
+import { Employee } from './entities/employee.entity';
 
 @Module({
-  imports: [MikroOrmModule.forFeature([EmployeeRepository])],
+  imports: [MikroOrmModule.forFeature([Employee])],
   controllers: [EmployeeController],
   providers: [EmployeeService],
 })
