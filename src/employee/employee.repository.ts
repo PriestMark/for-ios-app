@@ -15,9 +15,10 @@ export class EmployeeRepository extends EntityRepository<Employee> {
     if (search) {
     }
     try {
-      const employees = await query.execute('all');
+      const employees = await query.execute();
       return employees;
     } catch (err) {
+      console.log(err);
       throw new InternalServerErrorException();
     }
   }
