@@ -10,15 +10,14 @@ export function getMicroOrmOptions(): Options {
     type: 'postgresql',
   };
   if (process.env.NODE_ENV === 'production') {
-  }
-  options.driverOptions = {
-    connection: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
+    options.driverOptions = {
+      connection: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
       },
-    },
-  };
-
+    };
+  }
   return options;
 }

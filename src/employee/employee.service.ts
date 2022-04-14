@@ -1,7 +1,7 @@
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 import { GetEmployeeFileterDto } from './dto/get-employee.dto';
-import { Employee } from './entities/employee.entity';
+import { Employee } from '../entities/employee.entity';
 import { EmployeeRepository } from './employee.repository';
 import { CreateEmployeDto } from './dto/create-employee.dto';
 

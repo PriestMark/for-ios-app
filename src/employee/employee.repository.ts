@@ -2,7 +2,7 @@ import { EntityRepository } from '@mikro-orm/postgresql';
 import { InternalServerErrorException } from '@nestjs/common';
 import { CreateEmployeDto } from './dto/create-employee.dto';
 import { GetEmployeeFileterDto } from './dto/get-employee.dto';
-import { Employee } from '../entities/entities/employee.entity';
+import { Employee } from '../entities/employee.entity';
 
 export class EmployeeRepository extends EntityRepository<Employee> {
   async getEmployees(
