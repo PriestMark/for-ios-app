@@ -5,6 +5,7 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { AuthgModule } from './authg/authg.module';
 import { UsersModule } from './users/users.module';
 import { getMicroOrmOptions } from 'micro-orm-config';
+import { JwtAuthModule } from './jwt-auth/jwt-auth.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { getMicroOrmOptions } from 'micro-orm-config';
     EmployeeModule,
     AuthgModule,
     UsersModule,
+    JwtAuthModule,
   ],
   exports: [MikroOrmModule],
 })
