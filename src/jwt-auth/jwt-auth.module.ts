@@ -8,20 +8,17 @@ import { JwtAuthStrategy } from './jwt-auth.strategy';
   imports: [
     ConfigModule,
     JwtModule.registerAsync({
-      useFactory: async () =>
-        //configService: ConfigService
-        {
-          return {
-            secret: process.env.GOOGLE_SECRET,
-            signOptions: {
-              expiresIn: process.env.JWT_EXPIRES_IN,
-            },
-          };
-        },
-      //inject: [ConfigService],
+      useFactory: async () => {
+        return {
+          secret: process.env.GOOGLE_SECRET,
+          signOptions: {
+            expiresIn: process.env.JWT_EXPIRES_IN,
+          },
+        };
+      },
     }),
   ],
   providers: [JwtAuthStrategy, JwtAuthService],
-  exports: [JwtModule, JwtAuthService],
+  exports: [JwtModule, JwtAuthService, JwtAuthStrategy],
 })
 export class JwtAuthModule {}

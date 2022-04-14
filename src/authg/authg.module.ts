@@ -8,6 +8,6 @@ import { GoogleStrategy } from './google.strategy';
 @Module({
   imports: [ConfigModule, JwtAuthModule],
   controllers: [AuthGController],
-  providers: [AuthGService, GoogleStrategy, JwtAuthModule],
+  providers: [AuthGService, GoogleStrategy],
 })
-export class AuthgModule {}
+export class AuthGModule {}
