@@ -33,4 +33,5 @@ export class EmployeeRepository extends EntityRepository<Employee> {
         : new InternalServerErrorException(err);
     }
   }
+  async updateEmployeeById() {}
 }

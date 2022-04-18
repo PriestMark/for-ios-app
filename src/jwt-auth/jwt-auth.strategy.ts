@@ -22,14 +22,6 @@ export class JwtAuthStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  // extractJwtFromCookie(req) {
-  //   let token = null;
-  //   if (req && req.cookies) {
-  //     token = req.cookies['jwt'];
-  //   }
-  //   return token;
-  // }
-
   async validate(payload: JwtPayload) {
     const { username, email } = payload;
     return { username: payload.username, email: payload.email };

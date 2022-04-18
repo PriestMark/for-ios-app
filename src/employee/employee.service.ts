@@ -21,4 +21,5 @@ export class EmployeeService {
     );
     return newEmploye;
   }
+  async updateEmployee() {}
 }

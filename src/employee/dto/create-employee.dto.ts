@@ -7,13 +7,13 @@ export class CreateEmployeDto {
   lastName: string;
   @IsOptional()
   @IsString()
-  photoURL: string;
+  photoURL?: string;
   @IsDate()
   @IsOptional()
-  startDate: Date;
+  startDate?: Date;
   @IsOptional()
   @IsString()
-  jobTitle: string;
+  jobTitle?: string;
   @IsEmail()
   email: string;
 }
