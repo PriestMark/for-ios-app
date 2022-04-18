@@ -2,6 +2,11 @@ import { Options } from '@mikro-orm/core';
 
 export function getMicroOrmOptions(): Options {
   let options: Options = {
+    schemaGenerator: {
+      disableForeignKeys: false, // wrap statements with `set foreign_key_checks = 0` or equivalent
+      createForeignKeyConstraints: true, // whether to generate FK constraints
+      //wrap:false,
+    },
     entities: ['./dist/src/entities'],
     entitiesTs: ['./src/entities'],
     clientUrl:

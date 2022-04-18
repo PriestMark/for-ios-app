@@ -11,6 +11,7 @@ export class UserRepository extends EntityRepository<User> {
         (await this.findOne({ email: searchString }));
       return user;
     } catch (error) {
+      console.log(error);
       return undefined;
     }
   }
