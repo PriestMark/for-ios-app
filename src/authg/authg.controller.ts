@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Get,
-  Req,
-  Res,
-  UnauthorizedException,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { JwtAuthService } from 'src/jwt-auth/jwt-auth.service';
 import { AuthGService } from './authg.service';
@@ -28,10 +21,6 @@ export class AuthGController {
   @Get('redirect')
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Req() req) {
-    //DELETE:
-    // if (this.userService.isNewUser(req.user.email)) {
-    //   return new UnauthorizedException();
-    // }
     const { accessToken } = await this.jwtAuthService.login(req.user);
     req.res.cookie('jwt', accessToken);
     return this.authGService.googleLogin(req);

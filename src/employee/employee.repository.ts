@@ -5,13 +5,9 @@ import { GetEmployeeFileterDto } from './dto/get-employee.dto';
 import { Employee } from '../entities/employee.entity';
 
 export class EmployeeRepository extends EntityRepository<Employee> {
-  async getEmployees(
-    filterDto: GetEmployeeFileterDto,
-    //employee: Employee,
-  ): Promise<Employee[]> {
+  async getEmployees(filterDto: GetEmployeeFileterDto): Promise<Employee[]> {
     const { search } = filterDto;
     const query = this.createQueryBuilder('employee');
-    //query.where({ employee });
 
     if (search) {
     }
