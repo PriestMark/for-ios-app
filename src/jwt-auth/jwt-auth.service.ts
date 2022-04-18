@@ -5,6 +5,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { User } from 'src/entities/user.entity';
 import { UserDto } from 'src/users/dto/user.dto';
 import { UsersService } from 'src/users/users.service';
 import { JwtPayload } from './jwt-auth.strategy';
@@ -16,14 +17,17 @@ export class JwtAuthService {
     private jwtService: JwtService,
   ) {}
 
-  login(user) {
-    if (!this.userService.getUser(user.email)) {
+  async login(user) {
+    const searchedUser: User = await this.userService.getUser(user.email);
+    if (!searchedUser) {
       if (user.email.toLowerCase().includes('@redrocket.software')) {
         let createUserDto: UserDto;
-        Object.keys(user)
-          .filter((key) => key in createUserDto)
-          .forEach((key) => (createUserDto[key] = user[key]));
-        this.userService.createUser(createUserDto);
+        createUserDto = {
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        };
+        await this.userService.createUser(createUserDto);
       } else {
         throw new UnauthorizedException(
           'Cannot handle login for this user, please contact administrator.',

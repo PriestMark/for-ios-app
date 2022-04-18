@@ -10,7 +10,7 @@ export class UserRepository extends EntityRepository<User> {
         (await this.findOne({ userId: searchString })) ||
         (await this.findOne({ email: searchString }));
       return user;
-    } catch {
+    } catch (error) {
       return undefined;
     }
   }

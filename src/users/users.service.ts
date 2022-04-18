@@ -17,7 +17,7 @@ export class UsersService {
   ) {}
   async getUser(searchString): Promise<User> {
     let user: User;
-    this.userRepository.getUser(searchString);
+    user = await this.userRepository.getUser(searchString);
     return user;
   }
   async createUser(createUserDto: UserDto): Promise<User> {

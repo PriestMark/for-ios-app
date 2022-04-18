@@ -27,12 +27,12 @@ export class AuthGController {
 
   @Get('redirect')
   @UseGuards(AuthGuard('google'))
-  googleAuthRedirect(@Req() req) {
+  async googleAuthRedirect(@Req() req) {
     //DELETE:
     // if (this.userService.isNewUser(req.user.email)) {
     //   return new UnauthorizedException();
     // }
-    const { accessToken } = this.jwtAuthService.login(req.user);
+    const { accessToken } = await this.jwtAuthService.login(req.user);
     req.res.cookie('jwt', accessToken);
     return this.authGService.googleLogin(req);
   }
